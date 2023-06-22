@@ -34,3 +34,19 @@
     @apply font-semibold;
   }
 }
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
+body {
+  transition: background 1s ease;
+}
+
+/* #link {
+  transition: color 1s ease;
+} */
