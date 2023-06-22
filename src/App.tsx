@@ -18,24 +18,20 @@ function App() {
       const scroll = window.pageYOffset;
       if (scroll < 300) {
         // pink
-        // link.style.color = "green";
         body.style.backgroundColor = "#ff608c";
       } else if (scroll >= 300 && scroll < 1200) {
         // white
-        // link.style.color = "green";
         body.style.backgroundColor = "#ffffff";
       } else if (scroll >= 1200 && scroll < 1800) {
         // green
-        // link.style.color = "green";
         body.style.backgroundColor = "#00c1b5";
       } else if (scroll >= 1800 && scroll < 2400) {
         // orange
-        // link.style.color = "green";
         body.style.backgroundColor = "#ff6519";
       } else if (scroll >= 2400 && scroll < 3600) {
         // yellow
         body.style.backgroundColor = "#ffbe00";
-      } else if (scroll >= 3900 && scroll < 4000) {
+      } else if (scroll >= 3600 && scroll < 4000) {
         // blue
         body.style.backgroundColor = "#1d3fbb";
       } else if (scroll >= 4000 && scroll < 9000) {
@@ -49,25 +45,23 @@ function App() {
   }, []);
 
   // useEffect(() => {
-    const handleScroll = (
-      e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-    ) => {
-      // first prevent the default behavior
-      e.preventDefault();
-      // get the href and remove everything before the hash (#)
-      const href = e.currentTarget.href;
-      const targetId = href.replace(/.*\#/, "");
-      // get the element by id and use scrollIntoView
-      const elem = document.getElementById(targetId);
-      elem?.scrollIntoView({
-        behavior: "smooth",
-      });
-    };
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    // first prevent the default behavior
+    e.preventDefault();
+    // get the href and remove everything before the hash (#)
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    // get the element by id and use scrollIntoView
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
   // });
 
   return (
     <div className="flex flex-col">
-      <div className="fixed left-5 flex h-[100vh] flex-col justify-between">
+      <div className="absolute sm:fixed left-5 flex h-[100vh] flex-col justify-between">
         {" "}
         <img
           src={logo}
@@ -156,6 +150,44 @@ function App() {
           />
         );
       })}
+
+      <div className="flex flex-col items-center justify-center">
+        <div className="mb-5 sm:hidden w-[95%] flex items-center flex-col">
+          <div>
+            <h4 className="pb-1 text-[18px] leading-[25px] text-center">
+              Backstage Talks is a magazine of casual, but in depth dialogues on
+              design and business. Our decisions shape and influence this
+              complex world—to have a chance to make the right ones, we need to
+              talk.
+            </h4>
+          </div>
+          <div className="pb-[32px]">
+            <p className="text-[12px]">
+              © 2023{" "}
+              <a href="">
+                <span className="cursor-default underline hover:no-underline">
+                  Published by Büro Milk
+                </span>
+              </a>
+            </p>
+          </div>
+          <div>
+            {" "}
+            <a href="">
+              {" "}
+              <h4 className="cursor-default text-[18px] underline hover:no-underline">
+                Privacy Policy
+              </h4>
+            </a>
+          </div>
+        </div>
+
+        <a href="#">
+          <h3 className="mt-5 mb-10 sm:hidden cursor-default text-[18px] hover:underline ">
+            info@backstagetalks.com
+          </h3>
+        </a>
+      </div>
     </div>
   );
 }

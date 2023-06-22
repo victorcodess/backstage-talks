@@ -7,7 +7,7 @@ const BookCard = ({ img, buy, id, sold }: bookProps) => {
       className="flex h-[100vh] w-full flex-col items-center justify-center"
       id={`${id}`}
     >
-      <img src={img} alt="" className="w-[420px]" />
+      <img src={img} alt="" className="w-[387px] md:w-[420px]" />
       <div className="flex flex-col items-center gap-[23px]">
         <h4 className="inline-flex text-[18px] text-[#251d20]">
           Issue #{id}{" "}
